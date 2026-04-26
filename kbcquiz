@@ -33,3 +33,92 @@ int main() {
          'B'}
     };
 
+int score = 0;
+    char userAnswer;
+
+    int l5050 = 1, audience = 1, call = 1;
+
+    printf("team suhani\n");
+
+    printf("Welcome to KBC Quiz Game \n");
+
+    printf("------------------------------------\n");
+
+    for (int i = 0; i < 5; i++) {
+
+        printf("\nQ%d: %s\n", i + 1, q[i].question);
+
+        for (int j = 0; j < 4; j++) {
+            printf("%s\n", q[i].options[j]);
+        }
+
+        printf("\nEnter A/B/C/D or L for lifeline: ");
+        scanf(" %c", &userAnswer);
+
+        // Lifeline section
+        if (userAnswer == 'L') {
+
+            printf("\nChoose Lifeline:\n");
+            if (l5050) 
+            printf("1. l5050\n");
+            if (audience) 
+            printf("2. Audience Poll\n");
+            if (call)
+             printf("3. Phone a Friend\n");
+
+            int choice;
+            scanf("%d", &choice);
+
+            int correctIndex = q[i].answer - 'A';
+
+            if (choice == 1 && l5050) {
+                int wrongIndex;
+
+                srand(time(0));
+                do {
+                    wrongIndex = rand() % 4;
+                } while (wrongIndex == correctIndex);
+
+                printf("\n l5050 Options:\n");
+                printf("%s\n", q[i].options[correctIndex]);
+                printf("%s\n", q[i].options[wrongIndex]);
+
+                l5050= 0;
+            }
+
+            else if (choice == 2 && audience) {
+                printf("\n Audience Poll:\n");
+                printf("A: 20%%\nB: 10%%\nC: 60%%\nD: 10%%\n");
+
+                audience = 0;
+            }
+
+            else if (choice == 3 && call) {
+                printf("\nFriend is locking answer: %c\n", q[i].answer);
+
+                call = 0;
+            }
+
+            else {
+                printf("Invalid or already used!\n");
+            }
+
+            printf("\nNow enter your answer: ");
+            scanf(" %c", &userAnswer);
+        }
+
+        // Answer checking
+        if (userAnswer == q[i].answer) {
+            printf("✅ Correct!\n");
+            score += 10;
+        } else 
+            printf("Wrong Answer! Game Over\n");
+            break;
+        }
+
+        printf("Score: %d\n", score);
+
+    printf("\n Final Score: %d\n", score);
+
+    return 0;
+}
