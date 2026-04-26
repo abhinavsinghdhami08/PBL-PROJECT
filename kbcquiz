@@ -1,2 +1,34 @@
-kbcquiz
-\
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure
+struct Question {
+    char question[100];
+    char options[4][50];
+    char answer;
+};
+
+int main() {
+
+    // Array of structures (Questions)
+    struct Question q[5] = {
+        {"What is the correct extension of a c program?",
+         {"A. .cpp", "B. .java", "C. .c", "D. .py"},
+         'C'},
+
+        {"Which function is used to print the output in C?",
+         {"A. print()", "B. printf()", "C. cout", "D. display()"},
+         'B'},
+
+        {"Which header file is required for printf()?",
+         {"A. conio.h", "B. stdio.h", "C. math.h", "D. string.h"},
+         'B'},
+
+        {"Which language is used for system programming?",
+         {"A. Python", "B. C", "C. Java", "D. HTML"},
+         'B'},
+
+        {"Which data structure uses FIFO?",
+         {"A. Stack", "B. Queue", "C. Tree", "D. Graph"},
+         'B'}
+    };
