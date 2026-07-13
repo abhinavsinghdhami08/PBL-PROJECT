@@ -1,5 +1,5 @@
 # KBC QUIZ GAME 
-The aim of this project is to create an interactive quiz game in C-language inspired by KBC. 
+The aim of this project is to create an interactive quiz game in C language inspired by KBC. 
 ## FEATURES 
 - Quiz options
 - Life lines 
